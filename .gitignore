@@ -1,0 +1,6 @@
+*.mp4
+*.mov
+*.srt
+
+.DS_Store
+__pycache__/
