@@ -38,7 +38,7 @@ Astrotitles CLI is a tool that allows you to generate a srt/vtt subtitle file fr
    ```
 2. Install via pip (github)
    ```sh
-   pip install https://github.com/Astrotitles/cli.git
+   pip install git+https://github.com/Astrotitles/cli.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

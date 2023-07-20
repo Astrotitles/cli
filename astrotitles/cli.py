@@ -1,7 +1,8 @@
 import argparse
-from astrotitles.utils import checkPositive
 
-from transcriber import Transcriber
+from astrotitles.utils import checkPositive
+from astrotitles.transcriber import Transcriber
+
 from whisper.utils import str2bool
 
 def cli():
