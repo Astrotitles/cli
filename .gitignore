@@ -1,6 +1,7 @@
 *.mp4
 *.mov
 *.srt
+*.vtt
 
 .DS_Store
 __pycache__/

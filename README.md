@@ -54,7 +54,7 @@ The Astrotitles CLI is self-documented with ```--help``` content and examples fo
 astrotitles --help
 ```
 
-```sh
+```
 usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME] [--max-chars MAX_CHARS] [--format FORMAT] [--model MODEL] input
 
 Generate a srt/vtt subtitle file from audio/video file
