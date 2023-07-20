@@ -55,7 +55,8 @@ astrotitles --help
 ```
 
 ```
-usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME] [--max-chars MAX_CHARS] [--format FORMAT] [--model MODEL] input
+usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME]
+    [--max-chars MAX_CHARS] [--format FORMAT] [--model MODEL] input
 
 Generate a srt/vtt subtitle file from audio/video file
 
