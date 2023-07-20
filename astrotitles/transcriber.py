@@ -5,26 +5,26 @@ import whisper_timestamped as whisper
 from whisper_timestamped.make_subtitles import write_srt, write_vtt, split_long_segments
 warnings.filterwarnings("default")
 
-import utils
+from astrotitles.utils import fileExists, dirExists, outputFileName, verbose, overrideOutputFilePrompt
 import os
 import typing
 
 
 class Transcriber:
     def __init__(self, args: dict[str, typing.Any]) -> None:
-        self.input = utils.fileExists(args.pop("input"))
-        self.output = utils.dirExists(args.pop("output"))
+        self.input = fileExists(args.pop("input"))
+        self.output = dirExists(args.pop("output"))
         self.verbose = args.pop("verbose")
         self.format = args.pop("format")
-        self.outputName = utils.outputFileName(args.pop("output_name"), self.format)
+        self.outputName = outputFileName(args.pop("output_name"), self.format)
         self.maxChars = args.pop("max_chars")
         self.modelName = args.pop("model")
 
     def transcribe(self) -> None:
-        utils.verbose(f"Loading model '{self.modelName}'...", self.verbose)
+        verbose(f"Loading model '{self.modelName}'...", self.verbose)
         model = whisper.load_model(self.modelName)
 
-        utils.verbose(f"Starting transcription...", self.verbose)
+        verbose(f"Starting transcription...", self.verbose)
         warnings.filterwarnings("ignore")
         result = whisper.transcribe(model=model, audio=self.input, verbose=False)
         warnings.filterwarnings("default")
@@ -32,10 +32,10 @@ class Transcriber:
         outputFilePath = os.path.join(self.output, self.outputName)
 
         if os.path.exists(outputFilePath):
-            utils.overrideOutputFilePrompt()
+            overrideOutputFilePrompt()
 
 
-        utils.verbose(f"Writing subtitle file...", self.verbose)
+        verbose(f"Writing subtitle file...", self.verbose)
         with open(outputFilePath, "w", encoding="utf-8") as outputFile:
             if self.format == "srt":
                 write_srt(self.getSubtitleData(result["segments"]), outputFile)
