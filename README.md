@@ -54,6 +54,27 @@ The Astrotitles CLI is self-documented with ```--help``` content and examples fo
 astrotitles --help
 ```
 
+```sh
+usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME] [--max-chars MAX_CHARS] [--format FORMAT] [--model MODEL] input
+
+Generate a srt/vtt subtitle file from audio/video file
+
+positional arguments:
+  input                 Input audio/video file to be transcribed
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT       Specify output directory for srt/vtt subtitle file
+  --output-name OUTPUT_NAME
+                        Specify output file name (no extension)
+  --max-chars MAX_CHARS
+                        Specify the maximum number of characters allowed per subtitle segment
+  --format FORMAT       Specify subtitle format (default: .srt)
+  --model MODEL         Whisper AI model to use for transcribing
+
+Thanks for using Astrotitles CLI!
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
