@@ -2,6 +2,7 @@ import argparse
 import utils
 
 from transcriber import Transcriber
+from whisper.utils import str2bool
 
 def cli():
     parser = argparse.ArgumentParser(
@@ -17,6 +18,7 @@ def cli():
     parser.add_argument("--max-chars", type=utils.checkPositive, help="Specify the maximum number of characters allowed per subtitle segment")
     parser.add_argument("--format", type=str, default="srt", choices=["srt", "vtt"], metavar="FORMAT", help="Specify subtitle format (default: .srt)")
     parser.add_argument("--model", type=str, default=Transcriber.defaultModel(), choices=Transcriber.availableModels(), metavar="MODEL", help="Whisper AI model to use for transcribing")
+    parser.add_argument("--verbose", type=str2bool, default=True, help="Print out progress of transcription process")
 
     args = parser.parse_args().__dict__
 

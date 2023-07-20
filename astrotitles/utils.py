@@ -32,6 +32,11 @@ def outputFileName(outputName: str, format: str) -> str:
     return f"{generateName() if outputName == None else outputName}.{format}"
 
 
+def verbose(msg: str, verbose: bool):
+    if (verbose):
+        print(msg)
+
+
 def overrideOutputFilePrompt(outputFilePath: str) -> None:
     override = input("\nOutput file already exists. Override [y/n]: ")
 

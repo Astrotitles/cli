@@ -7,19 +7,24 @@ warnings.filterwarnings("default")
 
 import utils
 import os
+import typing
+
 
 class Transcriber:
-    def __init__(self, args) -> None:
+    def __init__(self, args: dict[str, typing.Any]) -> None:
         self.input = utils.fileExists(args.pop("input"))
         self.output = utils.dirExists(args.pop("output"))
+        self.verbose = args.pop("verbose")
         self.format = args.pop("format")
         self.outputName = utils.outputFileName(args.pop("output_name"), self.format)
         self.maxChars = args.pop("max_chars")
         self.modelName = args.pop("model")
 
     def transcribe(self) -> None:
+        utils.verbose(f"Loading model '{self.modelName}'...", self.verbose)
         model = whisper.load_model(self.modelName)
 
+        utils.verbose(f"Starting transcription...", self.verbose)
         warnings.filterwarnings("ignore")
         result = whisper.transcribe(model=model, audio=self.input, verbose=False)
         warnings.filterwarnings("default")
@@ -29,6 +34,8 @@ class Transcriber:
         if os.path.exists(outputFilePath):
             utils.overrideOutputFilePrompt()
 
+
+        utils.verbose(f"Writing subtitle file...", self.verbose)
         with open(outputFilePath, "w", encoding="utf-8") as outputFile:
             if self.format == "srt":
                 write_srt(self.getSubtitleData(result["segments"]), outputFile)
@@ -38,7 +45,7 @@ class Transcriber:
             outputFile.close()
 
 
-    def getSubtitleData(self, segments):
+    def getSubtitleData(self, segments: dict[str, typing.Any]) -> dict[str, typing.Any]:
         if self.maxChars == None:
             return segments
         else:

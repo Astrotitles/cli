@@ -3,5 +3,9 @@
 *.srt
 *.vtt
 
+dist/
+build/
+astrotitles.egg-info/
+
 .DS_Store
 __pycache__/
