@@ -55,8 +55,8 @@ astrotitles --help
 ```
 
 ```
-usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME]
-    [--max-chars MAX_CHARS] [--format FORMAT] [--model MODEL] input
+usage: astrotitles [-h] [--output OUTPUT] [--output-name OUTPUT_NAME] [--max-chars MAX_CHARS] 
+    [--format FORMAT] [--model MODEL] [--verbose VERBOSE] input
 
 Generate a srt/vtt subtitle file from audio/video file
 
@@ -72,6 +72,7 @@ options:
                         Specify the maximum number of characters allowed per subtitle segment
   --format FORMAT       Specify subtitle format (default: .srt)
   --model MODEL         Whisper AI model to use for transcribing
+  --verbose VERBOSE     Print out progress of transcription process (default: True)
 
 Thanks for using Astrotitles CLI!
 ```
