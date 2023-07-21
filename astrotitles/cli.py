@@ -19,7 +19,7 @@ def cli():
     parser.add_argument("--max-chars", type=checkPositive, help="Specify the maximum number of characters allowed per subtitle segment")
     parser.add_argument("--format", type=str, default="srt", choices=["srt", "vtt"], metavar="FORMAT", help="Specify subtitle format (default: .srt)")
     parser.add_argument("--model", type=str, default=Transcriber.defaultModel(), choices=Transcriber.availableModels(), metavar="MODEL", help="Whisper AI model to use for transcribing")
-    parser.add_argument("--verbose", type=str2bool, default=True, help="Print out progress of transcription process")
+    parser.add_argument("--verbose", type=str2bool, default=True, help="Print out progress of transcription process (default: True)")
 
     args = parser.parse_args().__dict__
 
