@@ -32,7 +32,7 @@ class Transcriber:
         outputFilePath = os.path.join(self.output, self.outputName)
 
         if os.path.exists(outputFilePath):
-            overrideOutputFilePrompt()
+            overrideOutputFilePrompt(outputFilePath)
 
 
         verbose(f"Writing subtitle file...", self.verbose)

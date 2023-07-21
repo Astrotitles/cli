@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    version="0.1.4",
+    version="0.1.5",
     name="astrotitles",
     packages=find_packages(),
     license="AGPL-3.0",
